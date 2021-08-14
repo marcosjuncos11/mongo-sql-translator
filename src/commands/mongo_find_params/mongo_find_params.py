@@ -7,9 +7,7 @@ class MongoFindParams(IMongoFindParams):
     try:
       inside_parenthesis = query[query.find("(")+1:query.find(")")]
       where_fields = self._get_parameter(inside_parenthesis)      
-      select_fields = self._get_parameter(inside_parenthesis[len(where_fields)+1:])
-      print("select_fields", select_fields)
-      print("where_fields", where_fields)
+      select_fields = self._get_parameter(inside_parenthesis[len(where_fields)+1:])      
       return {
         "select_fields": select_fields,
         "where_fields": where_fields,
@@ -19,8 +17,7 @@ class MongoFindParams(IMongoFindParams):
       raise e
     
   
-  def _get_parameter(self, query: str):
-    print("query", query)
+  def _get_parameter(self, query: str):    
     stack = ""
     openings = 0      
     closings = 0     

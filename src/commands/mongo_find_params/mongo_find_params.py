@@ -3,7 +3,6 @@ from src.commands.mongo_find_params.imongo_find_params import IMongoFindParams
 class MongoFindParams(IMongoFindParams):
     
   def execute(self, query: str) -> dict:
-    print(query)
     try:
       inside_parenthesis = query[query.find("(")+1:query.find(")")]
       where_fields = self._get_parameter(inside_parenthesis)      

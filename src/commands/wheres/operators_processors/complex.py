@@ -22,16 +22,7 @@ class Complex(IComplex):
       if s == close_symbol:
         closings += 1
       if s == close_symbol and openings == closings:
-        name = name[1:] if name[0] == "," else name
-        # print(chain.find("*"), type(chain))
-        # if chain.find("{") != -1 and chain.find("}") != -1:
-        #   print("chain1", chain)        
-        #   chain = chain.strip()
-        #   chain = chain[1:-1]
-        #   print("name", name)
-        #   print("chain", chain)        
-        #   new_value = self.execute(chain)
-        #   print("new_valuen", new_value)
+        name = name[1:] if name[0] == "," else name        
         stack.append({"name": name, "value": chain})
         chain, openings, closings, name, open_symbol, close_symbol = self._ini_vars()
         continue                

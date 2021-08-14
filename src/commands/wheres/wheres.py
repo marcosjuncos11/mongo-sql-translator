@@ -15,11 +15,9 @@ class Wheres(IWheres):
       query = query.strip()
       query = query[1:-1]
       # split operations
-      results = self.complex_operator_processor.execute(query)
-      # print("results", results)
+      results = self.complex_operator_processor.execute(query)      
       if len(results) == 0:
-        results = self.simple_operator_processor.execute(query)
-        # print("results2", results)
+        results = self.simple_operator_processor.execute(query)      
       return results
     except Exception as e:
       print(e)

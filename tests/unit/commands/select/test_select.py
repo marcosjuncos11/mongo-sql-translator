@@ -16,7 +16,7 @@ use_cases = [{
 ]
 
 @pytest.mark.parametrize("case", use_cases)
-def test_table(case):
+def test_select(case):
   table_command = Select()
   response = table_command.execute(case["scenario"])
   assert response == case["select_fields"]  

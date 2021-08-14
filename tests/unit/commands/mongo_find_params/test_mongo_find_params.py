@@ -24,9 +24,8 @@ use_cases = [{
 ]
 
 @pytest.mark.parametrize("case", use_cases)
-def test_table(case):
+def test_mongo_find_param(case):
   command = MongoFindParams()
   response = command.execute(case["scenario"])
-  print(response)
   assert response["select_fields"] == case["select_fields"]
   assert response["where_fields"] == case["where_fields"]

@@ -1,0 +1,2 @@
+dependency-injector==4.35.2
+pytest==6.2.4

@@ -1,0 +1,12 @@
+version: '3.4'
+
+services:
+  app:
+    build:
+      context: ./
+      dockerfile: ./DockerfileTest
+    volumes:
+    - .:/usr/src/app
+    environment:    
+      - DEBUG=1
+      - PYTHONDONTWRITEBYTECODE=1

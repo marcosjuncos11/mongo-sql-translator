@@ -17,19 +17,19 @@ use_cases = [{
   {
     "scenario": "{ first_name: \"Marcos\", last_name: \"Juncos\"}",
     "expected": [{"name": "first_name", "value": "Marcos"}, {"name": "last_name", "value": "Juncos"}],
+  },  
+  {
+    "scenario": "{quantity:{$lt:20}}",
+    "expected": [{'name': 'quantity', 'value': '$lt:20'}],
   },
   {
-    "scenario": "{ age: { $gt: 18, $lt: 65 }}",
-    "expected": [{'name': 'age', 'value': '$gt:18,$lt:65'}],
+    "scenario": "{ $or: [{ quantity: { $lt: 20 }}, { price: { $lt: 10 }}] }",
+    "expected": [{'name': '$or', 'value': '{quantity:{$lt:20}},{price:{$lt:10}}'}],
   },
   {
-    "scenario": "{ $or: [ { quantity: { $lt: 20 } }, { price: 10 } ] }",
-    "expected": [{'name': '$or', 'value': '{quantity:{$lt:20}},{price:10}'}],
-  },
-  {
-    "scenario": "{ $and: [ { quantity: { $lt: 20 } }, { price: 10 } ] }",
-    "expected": [{'name': '$and', 'value': '{quantity:{$lt:20}},{price:10}'}],
-  },
+    "scenario": "{ $and: [ { quantity: { $lt: 20 }}, { price: { $lt: 10 }}] }",
+    "expected": [{'name': '$and', 'value': '{quantity:{$lt:20}},{price:{$lt:10}}'}],
+  },  
   {
     "scenario": " { qty: { $in: [ 5, 15 ] } }",
     "expected": [{'name': 'qty', 'value': '$in:[5,15]'}],
@@ -41,8 +41,8 @@ use_cases = [{
 ]
 
 @pytest.mark.parametrize("case", use_cases)
-def test_table(case):
+def test_wheres(case):
   container = WheresContainer()
-  command = container.translator_service()
-  response = command.execute(case["scenario"])    
+  command = container.wheres_service()
+  response = command.execute(case["scenario"])      
   assert response == case["expected"]

@@ -6,7 +6,7 @@ class Simple(ISimple):
     stack = []
     name = None
     chain = ""
-    value = "value"
+    value = ""
     for s in query:
       if s in [" ", "\"", "'"]:
         continue

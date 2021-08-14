@@ -3,6 +3,14 @@ from src.commands.table.itable import ITable
 
 class Table(ITable):
     def execute(self, query: str) -> dict:
+        """processes mongo db query to get sql table name
+
+        Args:
+            query (str): mongodb query
+
+        Returns:
+            dict: table name and the rest of the query
+        """
         try:
             query_split = query.split(".")
             return {

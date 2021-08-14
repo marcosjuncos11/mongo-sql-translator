@@ -2,7 +2,17 @@ from src.commands.sql_builder.isql_builder import ISQLBuilder
 
 
 class SQLBuilder(ISQLBuilder):
-    def execute(self, select: str, table: str, conditions: str) -> dict:
+    def execute(self, select: str, table: str, conditions: str) -> str:
+        """creates SQL (string)
+
+        Args:
+            select (str): fields
+            table (str): table name
+            conditions (str): wheres clausule
+
+        Returns:
+            str: final sql query string
+        """
         try:
             return f"SELECT {select} FROM {table} WHERE {conditions};"
         except Exception as e:

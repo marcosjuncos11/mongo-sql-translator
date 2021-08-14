@@ -12,6 +12,14 @@ class Wheres(IWheres):
         self.complex_operator_processor = complex_operator_processor
 
     def execute(self, query: str) -> dict:
+        """Processes the conditions and group according different operators parsing them to SQL's one
+
+        Args:
+            query (str): pre-processed query
+
+        Returns:
+            dict: contains sql condition format
+        """
         try:
             # remove openings
             query = query.strip()

@@ -3,6 +3,15 @@ from src.commands.mongo_find_params.imongo_find_params import IMongoFindParams
 
 class MongoFindParams(IMongoFindParams):
     def execute(self, query: str) -> dict:
+        """split mogo query into select (fields) and wheres (conditions) sections
+
+        Args:
+            query (str): mongodb query
+
+        Returns:
+            dict: "select_fields": fields to be query
+                  "where_fields": conditions to filtering
+        """
         try:
             inside_parenthesis = query[query.find("(") + 1 : query.find(")")]
             where_fields = self._get_parameter(inside_parenthesis)
@@ -17,7 +26,7 @@ class MongoFindParams(IMongoFindParams):
             print(e)
             raise e
 
-    def _get_parameter(self, query: str):
+    def _get_parameter(self, query: str) -> str:
         stack = ""
         openings = 0
         closings = 0

@@ -29,22 +29,20 @@ class Translator(ITranslator):
 
     def execute(self, query: str) -> str:
         dto = None
-
         dto = self.table_command.execute(query)
 
-        print("table", dto)
+        # print("table", dto)
         table_name = dto["table"]
         dto = self.mongo_find_params_command.execute(dto["processed_query"])
 
         select_fields = self.select_command.execute(dto["select_fields"])
-        print("select_fields", select_fields)
+        # print("select_fields", select_fields)
         wheres_fields = self.wheres_command.execute(dto["where_fields"])
-        print("wheres_fields", wheres_fields)
+        # print("wheres_fields", wheres_fields)
         conditions = self.conditions_command.execute(wheres_fields)
-        print("conditions", conditions)
+        # print("conditions", conditions)
 
         select = ",".join(select_fields)
         sql = self.sql_builder_command.execute(select, table_name, conditions)
-        print("sql")
-        print(sql)
+        print("sql", sql)
         return sql

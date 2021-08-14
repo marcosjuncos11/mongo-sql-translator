@@ -4,7 +4,6 @@ from src.commands.wheres.operators_processors.complex import Complex
 from src.commands.wheres.wheres import Wheres
 
 
-
 class WheresContainer(containers.DeclarativeContainer):
     simple = providers.Factory(Simple)
     complex = providers.Factory(Complex)
@@ -13,6 +12,3 @@ class WheresContainer(containers.DeclarativeContainer):
         simple,
         complex,
     )
-
-
-    

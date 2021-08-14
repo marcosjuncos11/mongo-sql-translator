@@ -6,6 +6,8 @@ from src.commands.mongo_find_params.mongo_find_params import MongoFindParams
 from src.commands.select.select import Select
 from src.commands.sql_builder.sql_builder import SQLBuilder
 from src.dependency_containers.wheres_container import WheresContainer
+
+
 class TranslatorContainer(containers.DeclarativeContainer):
     sql_builder_command = providers.Factory(SQLBuilder)
     table_command = providers.Factory(Table)
@@ -24,5 +26,3 @@ class TranslatorContainer(containers.DeclarativeContainer):
         wheres_command,
         sql_builder_command,
     )
-
-    

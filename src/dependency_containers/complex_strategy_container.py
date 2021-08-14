@@ -3,8 +3,9 @@ from src.commands.conditions.strategies.complex_condition import ComplexConditio
 from src.commands.conditions.strategies.simple_condition import SimpleCondition
 from src.dependency_containers.wheres_container import WheresContainer
 
+
 class ComplexStrategyContainer(containers.DeclarativeContainer):
-    simple = providers.Factory(SimpleCondition)    
+    simple = providers.Factory(SimpleCondition)
     container = WheresContainer()
     wheres = container.wheres_service()
     complex_condition_service = providers.Factory(

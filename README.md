@@ -16,13 +16,13 @@ sql_query = translator_service.execute(MONGODB_QUERY)
 
 ## Code structure
 
-In order to process and transform the MongoDb query, it applies a set of steps, main class/entry point is `src/translator.py` which implements a "variation" of the Chain of responsibility pattern, first processing the MongoDB query unpacking it in different parts, and finally calling to `src/query_builder/query_builder.py` to build the SQL query which the result of that process.
+In order to process and transform the MongoDb query, it applies a set of steps, main class/entry point is `src/translator.py` which implements a "variation" of the Chain of responsibility pattern, first processing the MongoDB query unpacking it in different parts, and finally calling to `src/query_builder/query_builder.py` to build the SQL query with the result of that process.
 
-Every behavior is encapsulated as a `Command` (`src/commands/`) each one of those commands does only one single thing, respecting the Single Responsibility Software Principle, and it's reusable by just injecting them as wish.
+Every behavior is encapsulated as a `Command` (`src/commands/`) each one of those commands does only one single thing, respecting the Single Responsibility Software Principle, and are reusable by just injecting them as wish.
 
 Dependency injection is used to decouple classes and making them more testable and abstract; each class inheritances from an Abstract class (use it as programming by interfaces) which defines the `execute` method as the signature of the class to be implemented, so classes can be replaced for others ones if needed only inheriting from the Abstract class, most complex object creations are in `src/dependency_containers`.
 
-Strategy pattern is used for build sql operators, there are 2 strategies, one when it's a regular operator and other one when it is a 'group' operator (`$and[{},{}]/$or[{},{}]`).
+Strategy pattern is used for build sql operators, there are 2 strategies, one when it's a regular operator and other one when it is a 'group' operator like `$and[{},{}]/$or[{},{}]`.
 
 Test strategy follows the Piramid strategy, which adds a bunch of pure unit tests (isolated) and fewer integration tests.
 

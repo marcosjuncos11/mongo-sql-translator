@@ -13,8 +13,10 @@ sql_query = translator_service.execute(MONGODB_QUERY)
 
 ## Test
 
-In `tests/` folder there are 2 types of tests, 
+In `tests/` folder there are 2 types of tests
+
 unit: testing each command isolated
+
 integration: testing all commands working together
 
 Run tests:

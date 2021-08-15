@@ -18,7 +18,7 @@ sql_query = translator_service.execute(MONGODB_QUERY)
 
 In order to process and transform the MongoDb query, it applies a set of steps, main class/entry point is `src/translator.py` which implements a "variation" of the Chain of responsibility pattern, first processing the MongoDB query unpacking it in different parts, and finally calling to `src/query_builder/query_builder.py` to build the SQL query which the result of that process.
 
-Every behavior is encapsulated as a `Command` (`src/commands/`) each one of those commands does only one single thing, respecting the Single Responsibility Software Principle, and is reusable by just injecting them as wish.
+Every behavior is encapsulated as a `Command` (`src/commands/`) each one of those commands does only one single thing, respecting the Single Responsibility Software Principle, and it's reusable by just injecting them as wish.
 
 Dependency injection is used to decouple classes and making them more testable and abstract; each class inheritances from an Abstract class (use it as programming by interfaces) which defines the `execute` method as the signature of the class to be implemented, so classes can be replaced for others ones if needed only inheriting from the Abstract class, most complex object creations are in `src/dependency_containers`.
 
@@ -40,8 +40,6 @@ Run tests:
 `docker-compose -f ./docker-compose-test.yml build`
 
 `docker-compose -f ./docker-compose-test.yml up`
-
-
 
 
 
@@ -78,3 +76,12 @@ Run tests:
         Input: "db.store.find({ center : { $eq : Came}, homepage_featured : { $ne : 0}});"
         Output: 'SELECT * FROM store WHERE  center="Came" AND  homepage_featured!="0";',
 ```
+
+
+## TODOs
+
+* Add more test coverage.
+* Add a tool as `make` to run tests easily and unit/integration separated.
+* Add more validations on the input format, showing more user's friendly messages (Custom exceptions according to each case).
+* Add type casting to the Query Value searched, now everything is treated as strings.
+* Improve search algorithms.

@@ -3,7 +3,7 @@ from src.commands.mongo_find_params.imongo_find_params import IMongoFindParams
 
 class MongoFindParams(IMongoFindParams):
     def execute(self, query: str) -> dict:
-        """split mogo query into select (fields) and wheres (conditions) sections
+        """split mongo query into select (fields) and wheres (conditions) sections
 
         Args:
             query (str): mongodb query

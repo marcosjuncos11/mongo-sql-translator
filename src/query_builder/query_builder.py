@@ -4,10 +4,10 @@ from src.commands.conditions.iconditions import IConditions
 from src.commands.select.iselect import ISelect
 from src.commands.sql_builder.isql_builder import ISQLBuilder
 from src.commands.wheres.iwheres import IWheres
-from src.itranslator import ITranslator
+from src.query_builder.iquery_builder import IQueryBuilder
 
 
-class QueryBuilder(ITranslator):
+class QueryBuilder(IQueryBuilder):
     def __init__(
         self,
         conditions_command: IConditions,

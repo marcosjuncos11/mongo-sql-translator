@@ -20,10 +20,18 @@ class SimpleCondition(ISimpleCondition):
     special_operators = ["$in:"]
 
     def execute(self, condition: str) -> dict:
+        """Processes mongodb operators transforming them to SQL's
+
+        Args:
+            condition (str): mongodb format
+
+        Returns:
+            dict: sql's conditions
+        """
         try:
-            prefix_operator = self._prefix_operator(condition["value"])
+            prefix_operator: str = self._prefix_operator(condition["value"])
             operator = "="
-            value = condition["value"]
+            value: str = condition["value"]
             add_str = True
             if prefix_operator != "" and prefix_operator in self.special_operators:
                 add_str = False
@@ -38,7 +46,7 @@ class SimpleCondition(ISimpleCondition):
                 else condition["name"]
             )
             value = f'"{value}"' if add_str else value
-            sql = f" {column_name}{operator}{value}"
+            sql: str = f" {column_name}{operator}{value}"
             return sql
         except Exception as e:
             print(e)

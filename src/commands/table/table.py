@@ -1,3 +1,4 @@
+from typing import List
 from src.commands.table.itable import ITable
 
 
@@ -12,7 +13,7 @@ class Table(ITable):
             dict: table name and the rest of the query
         """
         try:
-            query_split = query.split(".")
+            query_split: List[str] = query.split(".")
             return {
                 "table": query_split[1],
                 "processed_query": query_split[2],

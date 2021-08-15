@@ -13,9 +13,9 @@ class MongoFindParams(IMongoFindParams):
                   "where_fields": conditions to filtering
         """
         try:
-            inside_parenthesis = query[query.find("(") + 1 : query.find(")")]
-            where_fields = self._get_parameter(inside_parenthesis)
-            select_fields = self._get_parameter(
+            inside_parenthesis: str = query[query.find("(") + 1 : query.find(")")]
+            where_fields: str = self._get_parameter(inside_parenthesis)
+            select_fields: str = self._get_parameter(
                 inside_parenthesis[len(where_fields) + 1 :]
             )
             return {

@@ -27,8 +27,7 @@ class Translator(ITranslator):
         self.wheres_command = wheres_command
         self.sql_builder_command = sql_builder_command
 
-    def execute(self, query: str) -> str:
-        dto = None
+    def execute(self, query: str) -> str:        
         dto = self.table_command.execute(query)
 
         # print("table", dto)

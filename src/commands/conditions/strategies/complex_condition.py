@@ -1,3 +1,4 @@
+from typing import List
 from src.commands.conditions.strategies.icomplex_condition import IComplexCondition
 from src.commands.conditions.strategies.isimple_condition import ISimpleCondition
 from src.commands.wheres.iwheres import IWheres
@@ -15,10 +16,18 @@ class ComplexCondition(IComplexCondition):
         self.simple_condition_strategy = simple_condition_strategy
 
     def execute(self, condition: str) -> dict:
+        """Processes AND & OR's mongo db query transforming it to SQL's ones
+
+        Args:
+            condition (str): mongo and/or conditions
+
+        Returns:
+            dict: SQL conditions
+        """
         try:
-            sql = " ("
-            operator = self.operations_mapping.get(condition["name"])
-            simple_conditions = self._split_conditions(condition["value"])
+            sql: str = " ("
+            operator: str = self.operations_mapping.get(condition["name"])
+            simple_conditions: List[str] = self._split_conditions(condition["value"])
             sql += self._get_sql(simple_conditions, operator)
             sql += ") "
             return sql
@@ -27,7 +36,7 @@ class ComplexCondition(IComplexCondition):
             print(e)
             raise e
 
-    def _get_sql(self, simple_conditions, operator: str):
+    def _get_sql(self, simple_conditions: List[str], operator: str) -> str:
         sql = ""
         for simple_condition in simple_conditions:
             where = self.wheres_command.execute(simple_condition)

@@ -1,4 +1,5 @@
 import pytest
+
 from src.dependency_containers.translator_container import TranslatorContainer
 
 use_cases = [
@@ -52,8 +53,9 @@ def test_translator(case):
     response = translator_service.execute(case["scenario"])
     assert response == case["expected"]
 
+
 def test_unsupported():
     container = TranslatorContainer()
     translator_service = container.translator_service()
     with pytest.raises(Exception):
-      translator_service.execute("db.orders.findAll();")    
+        translator_service.execute("db.orders.findAll();")

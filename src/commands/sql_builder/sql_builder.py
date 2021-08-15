@@ -1,4 +1,5 @@
 from typing import List
+
 from src.commands.sql_builder.isql_builder import ISQLBuilder
 
 

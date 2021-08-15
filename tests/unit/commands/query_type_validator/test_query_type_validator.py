@@ -1,4 +1,5 @@
 import pytest
+
 from src.commands.validator.query_type_validator import QueryTypeValidator
 
 use_cases = [
@@ -20,6 +21,7 @@ def test_supported(case):
     command.execute(case["scenario"])
     assert True
 
+
 unsupported_use_cases = [
     {
         "scenario": "db.user.findAll();",
@@ -39,4 +41,3 @@ def test_unsupported(case):
     with pytest.raises(Exception):
         command.execute(case["scenario"])
     assert True
-    

@@ -1,9 +1,9 @@
 from dependency_injector import containers, providers
+
 from src.commands.conditions.conditions import Conditions
-from src.dependency_containers.complex_strategy_container import (
-    ComplexStrategyContainer,
-)
 from src.commands.conditions.strategies.simple_condition import SimpleCondition
+from src.dependency_containers.complex_strategy_container import \
+    ComplexStrategyContainer
 
 
 class ConditionsContainer(containers.DeclarativeContainer):

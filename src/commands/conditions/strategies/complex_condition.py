@@ -1,6 +1,9 @@
 from typing import List
-from src.commands.conditions.strategies.icomplex_condition import IComplexCondition
-from src.commands.conditions.strategies.isimple_condition import ISimpleCondition
+
+from src.commands.conditions.strategies.icomplex_condition import \
+    IComplexCondition
+from src.commands.conditions.strategies.isimple_condition import \
+    ISimpleCondition
 from src.commands.wheres.iwheres import IWheres
 
 

@@ -1,6 +1,8 @@
 from src.commands.conditions.iconditions import IConditions
-from src.commands.conditions.strategies.icomplex_condition import IComplexCondition
-from src.commands.conditions.strategies.isimple_condition import ISimpleCondition
+from src.commands.conditions.strategies.icomplex_condition import \
+    IComplexCondition
+from src.commands.conditions.strategies.isimple_condition import \
+    ISimpleCondition
 
 
 class Conditions(IConditions):

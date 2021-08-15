@@ -1,4 +1,5 @@
 import pytest
+
 from src.commands.table.table import Table
 
 use_cases = [

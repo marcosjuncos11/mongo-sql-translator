@@ -1,4 +1,5 @@
 import pytest
+
 from src.commands.select.select import Select
 
 use_cases = [

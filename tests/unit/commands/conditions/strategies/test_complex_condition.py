@@ -1,8 +1,9 @@
 import pytest
-from src.commands.conditions.strategies.complex_condition import ComplexCondition
-from src.dependency_containers.complex_strategy_container import (
-    ComplexStrategyContainer,
-)
+
+from src.commands.conditions.strategies.complex_condition import \
+    ComplexCondition
+from src.dependency_containers.complex_strategy_container import \
+    ComplexStrategyContainer
 
 use_cases = [
     {

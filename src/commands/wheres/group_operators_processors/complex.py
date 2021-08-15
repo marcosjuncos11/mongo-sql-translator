@@ -1,4 +1,5 @@
 from typing import List
+
 from src.commands.wheres.group_operators_processors.icomplex import IComplex
 
 

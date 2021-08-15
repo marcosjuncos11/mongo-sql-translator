@@ -1,4 +1,5 @@
 import pytest
+
 from src.commands.conditions.conditions import Conditions
 from src.dependency_containers.conditions_container import ConditionsContainer
 

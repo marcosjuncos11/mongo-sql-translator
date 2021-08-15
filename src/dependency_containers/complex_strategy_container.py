@@ -1,5 +1,7 @@
 from dependency_injector import containers, providers
-from src.commands.conditions.strategies.complex_condition import ComplexCondition
+
+from src.commands.conditions.strategies.complex_condition import \
+    ComplexCondition
 from src.commands.conditions.strategies.simple_condition import SimpleCondition
 from src.dependency_containers.wheres_container import WheresContainer
 

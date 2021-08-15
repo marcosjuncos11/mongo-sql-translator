@@ -1,7 +1,8 @@
 from typing import List
-from src.commands.wheres.iwheres import IWheres
-from src.commands.wheres.group_operators_processors.isimple import ISimple
+
 from src.commands.wheres.group_operators_processors.icomplex import IComplex
+from src.commands.wheres.group_operators_processors.isimple import ISimple
+from src.commands.wheres.iwheres import IWheres
 
 
 class Wheres(IWheres):

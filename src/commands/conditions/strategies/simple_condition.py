@@ -1,4 +1,5 @@
-from src.commands.conditions.strategies.isimple_condition import ISimpleCondition
+from src.commands.conditions.strategies.isimple_condition import \
+    ISimpleCondition
 
 
 class SimpleCondition(ISimpleCondition):

@@ -1,6 +1,6 @@
 from dependency_injector import containers, providers
-from src.commands.wheres.operators_processors.simple import Simple
-from src.commands.wheres.operators_processors.complex import Complex
+from src.commands.wheres.group_operators_processors.simple import Simple
+from src.commands.wheres.group_operators_processors.complex import Complex
 from src.commands.wheres.wheres import Wheres
 
 

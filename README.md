@@ -37,7 +37,17 @@ integration: testing all commands working together
 
 Run tests:
 
+`make build`
+
+then
+
+`make test`
+
+or
+
 `docker-compose -f ./docker-compose-test.yml build`
+
+then
 
 `docker-compose -f ./docker-compose-test.yml up`
 
@@ -81,7 +91,7 @@ Run tests:
 ## TODOs
 
 * Add more test coverage.
-* Add a tool as `make` to run tests easily and unit/integration separated.
+* Run unit/integration separated.
 * Add more validations on the input format, showing more user's friendly messages (Custom exceptions according to each case).
 * Add type casting to the Query Value searched, now everything is treated as strings.
 * Improve search algorithms.
